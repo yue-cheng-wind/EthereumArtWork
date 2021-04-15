@@ -1,0 +1,19 @@
+{
+    "name": "gallery-dapp",
+    "version": "1.0.0",
+    "description": "gallery appreciation dapp",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yue-cheng-wind/EthereumArtWork.git"
+    },
+    "dependencies": {
+        "express": "^4.15.2"
+    },
+    "author": "MIS382N Team 2",
+    "license": "MIT",
+    "homepage": "https://github.com/yue-cheng-wind/EthereumArtWork/blob/main/README.md"
+}

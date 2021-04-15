@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+    <title>Alice's Dreaming Gallery DApp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.6/dist/web3.min.js"></script>
+
+
+
+
+
+</head>
+
+<body class="text-secondary font-weight-light">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            Alice's Dreaming Gallery DApp
+        </a>
+        <span class="navbar-brand mb-0"></span>
+    </nav>
+
+    <div class="container mt-5">
+        <center>
+            <div class="col-md-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Artworks</th>
+                            <th scope="col" id="cad1">Name 1</th>
+                            <th scope="col" id="cad2">Name 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Like</th>
+
+
+                            <td> <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(1)">
+                                    <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                                    <span id="cad1count">0</span>
+                                </button></td>
+
+
+
+                            <td> <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(2)">
+                                    <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                                    <span id="cad2count">0</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tip</th>
+                            <td>
+                                <button onclick="tip(1)" class="btn btn-sm btn-outline-warning"><i
+                                        class="fas fa-donate fa-lg"></i>
+
+                                    <span id="cad1tip">0</span>
+                                </button>
+                            </td>
+
+
+                            <td>
+                                <button onclick="tip(2)" class="btn btn-sm btn-outline-warning"><i
+                                        class="fas fa-donate fa-lg"></i>
+                                    <span id="cad2tip">0</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br>
+
+            <p class="small mt-5">Developed with <i class="fas fa-heart mr-1 text-danger"></i>by <a
+                    href="https://github.com/yue-cheng-wind/EthereumArtWork.git" class="font-weight-bold text-danger"
+                    target="_blank">
+                    MIS 382N Team2</a></p>
+        </center>
+        <hr>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+    <script src="js/contract.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var myContract;
+        var myAccount;
+        async function CheckMetamaskConnection() {
+            // Modern dapp browsers...
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                try {
+                    // Request account access if needed
+                    await ethereum.enable();
+                    // Acccounts now exposed
+                    return true;
+                } catch (error) {
+                    // User denied account access...
+                    return false;
+                }
+            }
+            // Legacy dapp browsers...
+            else if (window.web3) {
+                window.web3 = new Web3(web3.currentProvider);
+                // Acccounts always exposed
+
+                return true;
+            }
+            // Non-dapp browsers...
+            else {
+                console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+                return false;
+            }
+        }
+
+        $(document).ready(async function () {
+            var IsMetamask = await CheckMetamaskConnection();
+            if (IsMetamask) {
+                myContract = await new web3.eth.Contract(SmartContractABI, SmartContractAddress);
+                getArtwork(1);
+                getArtwork(2);
+                console.log("myContract :", myContract);
+                console.log("Metamask detected!")
+
+                // get account information
+                var myAccounts = await web3.eth.getAccounts()
+                myAccount = myAccounts[0]
+                console.log("myAccount:", myAccount)
+
+                // get events
+                await myContract.events.eventUpdate({
+                    fromBlock: 0
+                }, function (err, event) {
+                    console.log("event :", event);
+                    console.log("artwork id", event.returnValues._artworkid)
+                    getArtwork(Number(event.returnValues._artworkid));
+                });
+
+
+            } else {
+                console.log("Metamask not detected");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Metamask not detected!',
+                    onClose() {
+                        location.reload();
+                    }
+                });
+            }
+        });
+
+        async function getArtwork(id) {
+            await myContract.methods.artworks(id).call().then((result) => {
+                console.log("result : ", result);
+                document.getElementById("cad" + id).innerHTML = result["name"];
+                document.getElementById("cad" + id + 'count').innerHTML = Number(result["likeCount"]);
+                document.getElementById("cad" + id + 'tip').innerHTML = Number(result["tipAmount"]);
+            }
+            )
+
+        }
+
+        async function like(id) {
+            await myContract.methods.like(id).send(
+                {
+                    from: myAccount,
+                }
+            ).then((res) => {
+                console.log("You like it!")
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Good!.',
+                    text: 'You have liked it!',
+                    onClose() {
+                        //  location.reload();
+                    }
+                });
+
+            }).catch((err) => {
+                console.error(err);
+                return err;
+            });
+        }
+
+
+        async function tip(id) {
+            await myContract.methods.tip(id).send(
+                {
+                    value: 10,
+                    from: myAccount,
+                }
+            ).then((res) => {
+                console.log("You tipped it!")
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Good!.',
+                    text: 'Thank you for supporting my artwork!',
+                    onClose() {
+                        //  location.reload();
+                    }
+                });
+
+            }).catch((err) => {
+                console.error(err);
+                return err;
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
