@@ -1,1 +1,1 @@
-# EthereumVoting
+# EthereumArtwork
