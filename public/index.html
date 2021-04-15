@@ -211,6 +211,8 @@
 
 
         async function tip(id) {
+
+            console.log("tipping" + id)
             await myContract.methods.tip(id).send(
                 {
                     value: 10,
