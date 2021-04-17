@@ -18,10 +18,10 @@ contract Gallery {
     constructor() public {
         owner = msg.sender;
         addArtwork("Hippopotamus and Crocodile Hunt");
-        addArtwork("The kiss");
+        addArtwork("The Kiss");
         addArtwork("The Trapper");
         addArtwork("The Veiled Lady at Mia");
-        addArtwork("Wave bowl");
+        addArtwork("Wave Bowl");
         addArtwork("Fist Supper");
     }
 
