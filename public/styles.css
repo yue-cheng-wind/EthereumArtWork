@@ -20,6 +20,12 @@ body h1 {
   padding: 40px 0 20px 0;
   margin: 0;
 }
+#headshot {
+    height: 75%;
+}
+#bio_font {
+    font-size: 2em;
+}
 .shadow_css {
     box-shadow: 0px 0px 5px 1px rgba(204, 204, 204, 0.5);
 }
