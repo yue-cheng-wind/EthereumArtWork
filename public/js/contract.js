@@ -45,6 +45,13 @@ var SmartContractABI = [
     },
     {
         "inputs": [],
+        "name": "withdrawBalance",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "artworkcount",
         "outputs": [
             {
@@ -89,7 +96,20 @@ var SmartContractABI = [
         ],
         "stateMutability": "view",
         "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "viewBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     }
 ];
 
-var SmartContractAddress = "0x6f11a15ed790C1353D56DBf2652a3D3Fb4172D37";
+var SmartContractAddress = "0x10eb82AcF8881d380978D7C8B4D5CdFB13646CdF";
