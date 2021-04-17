@@ -5,20 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         crossorigin="anonymous">
 
-    <title>Alice's Dreaming Gallery DApp</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.2.6/dist/web3.min.js"></script>
 
-
-
-
-
+    <title>Alice's Dreaming Gallery DApp</title>
 </head>
 
 <body class="text-secondary font-weight-light">
@@ -29,8 +23,18 @@
         <span class="navbar-brand mb-0"></span>
     </nav>
 
+
+    
+
+
+
+
+
+
+
+
     <div class="container mt-5">
-        <center>
+    
             <div class="col-md-5">
                 <table class="table">
                     <thead>
@@ -143,6 +147,7 @@
             </div>
             <br>
 
+            
             <div class="card" style="width: 25rem;">
                 <img class="card-img-top" src="./images/1.jpg" alt="Card image cap">
                 <div class="card-body">
@@ -167,7 +172,7 @@
                     href="https://github.com/yue-cheng-wind/EthereumArtWork.git" class="font-weight-bold text-danger"
                     target="_blank">
                     MIS 382N Team2</a></p>
-        </center>
+        
         <hr>
     </div>
 
@@ -296,7 +301,7 @@
             console.log("tipping" + id)
             await myContract.methods.tip(id).send(
                 {
-                    value: 10 ** 18,
+                    value: 10,
                     from: myAccount,
                 }
             ).then((res) => {
