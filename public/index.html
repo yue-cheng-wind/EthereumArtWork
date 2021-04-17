@@ -7,30 +7,147 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         crossorigin="anonymous">
-
-    <title>Alice's Dreaming Gallery DApp</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.2.6/dist/web3.min.js"></script>
 
     <title>Alice's Dreaming Gallery DApp</title>
+    
+    <style>
+        body {
+            margin: 20px;
+            padding: 0px;
+        }
+    </style>
 </head>
 
-<body class="text-secondary font-weight-light">
+<body>
     
     <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+        <div class="row justify-content-center">
+            <div class="card-group">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./images/1.jpg" alt="Hippopotamus and Crocodile Hunt">
+                    <div class="card-body">
+                        <h5 class="card-title">Hippopotamus and Crocodile Hunt</h5>
+
+                        <button class="btn btn-sm btn-outline-danger" onclick="like(1)">
+                            <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                            <span id="art1count">0</span>
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-warning" onclick="tip(1)">
+                            <i class="fas fa-donate fa-lg"></i>
+                            <span id="art1tip">0</span>
+                        </button>
+                    </div>
+                </div><!-- end card -->
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./images/2.jpg" alt="The Kiss">
+                    <div class="card-body">
+                        <h5 class="card-title">The Kiss</h5>
+                        
+                        <button class="btn btn-sm btn-outline-danger" onclick="like(2)">
+                            <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                            <span id="art2count">0</span>
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-warning" onclick="tip(2)">
+                            <i class="fas fa-donate fa-lg"></i>
+                            <span id="art2tip">0</span>
+                        </button>
+                    </div>
+                </div><!-- end card -->
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./images/3.jpg" alt="The Trapper">
+                    <div class="card-body">
+                        <h5 class="card-title">The Trapper</h5>
+                        
+                        <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(3)">
+                            <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                            <span id="art3count">0</span>
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-warning" onclick="tip(3)">
+                            <i class="fas fa-donate fa-lg"></i>
+                            <span id="art3tip">0</span>
+                        </button>
+                    </div>
+                </div><!-- end card -->
+
+            </div><!-- end card-group -->
+
+        </div><!-- end row -->
+
+        <div class="row justify-content-center mt-2">
+            <div class="card-group">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./images/4.jpg" alt="The Veiled Lady at Mia">
+                    <div class="card-body">
+                        <h5 class="card-title">The Veiled Lady at Mia</h5>
+                        
+                        <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(4)">
+                            <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                            <span id="art4count">0</span>
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-warning" onclick="tip(4)">
+                            <i class="fas fa-donate fa-lg"></i>
+                            <span id="art4tip">0</span>
+                        </button>
+                    </div>
+                </div><!-- end card -->
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./images/5.jpg" alt="Wave Bowl">
+                    <div class="card-body">
+                        <h5 class="card-title">Wave Bowl</h5>
+                        
+                        <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(5)">
+                            <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                            <span id="art5count">0</span>
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-warning" onclick="tip(5)">
+                            <i class="fas fa-donate fa-lg"></i>
+                            <span id="art5tip">0</span>
+                        </button>
+                    </div>
+                </div><!-- end card -->
+                
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./images/6.jpg" alt="Fist Supper">
+                    <div class="card-body">
+                        <h5 class="card-title">Fist Supper</h5>
+                        
+                        <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(6)">
+                            <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
+                            <span id="art6count">0</span>
+                        </button>
+
+                        <button class="btn btn-sm btn-outline-warning" onclick="tip(6)">
+                            <i class="fas fa-donate fa-lg"></i>
+                            <span id="art6tip">0</span>
+                        </button>
+                    </div>
+                </div><!-- end card -->
+
+            </div><!-- end card-group -->
+
+        </div><!-- end row -->
+        
     </div><!-- end container -->
 
 
+
+
     
+                               
+
+
+
 
 
 
@@ -154,25 +271,7 @@
             <br>
 
             
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="./images/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-title" id="art1"> <strong>Name 1</strong></p>
-                    <!-- <p class="card-text">Hippopotamus and Crocodile Hunt</p> -->
-                    <!--  <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                    <button href="#" class="btn btn-sm btn-outline-danger" onclick="like(1)">
-                        <i class="fas fa-heart mr-1 text-danger fa-lg"></i>
-                        <span id="art1count">0</span>
-                        <button onclick="tip(1)" class="btn btn-sm btn-outline-warning"><i
-                                class="fas fa-donate fa-lg"></i>
-
-                            <span id="art1tip">0</span>
-                            <span> <span>
-                        </button>
-
-                    </button>
-                </div>
-            </div>
+            
 
             <p class="small mt-5">Developed with <i class="fas fa-heart mr-1 text-danger"></i>by <a
                     href="https://github.com/yue-cheng-wind/EthereumArtWork.git" class="font-weight-bold text-danger"
@@ -235,7 +334,6 @@
                     getArtwork(i);
                 }
 
-
                 console.log("myContract :", myContract);
                 console.log("Metamask detected!")
 
@@ -253,7 +351,6 @@
                     console.log("artwork id", event.returnValues._artworkid)
                     getArtwork(Number(event.returnValues._artworkid));
                 });
-
 
             } else {
                 console.log("Metamask not detected");
@@ -274,9 +371,7 @@
                 document.getElementById("art" + id).innerHTML = result["name"];
                 document.getElementById("art" + id + 'count').innerHTML = Number(result["likeCount"]);
                 document.getElementById("art" + id + 'tip').innerHTML = Number(result["tipAmount"]);
-            }
-            )
-
+            })
         }
 
         async function like(id) {
