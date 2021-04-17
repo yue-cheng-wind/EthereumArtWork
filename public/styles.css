@@ -12,7 +12,6 @@ body {
   background: #efefef;
   color: #333;
   font-family: "Raleway";
-  margin: 20px;
 }
 body h1 {
   text-align: center;
@@ -32,7 +31,6 @@ body h1 {
   padding: 50px;
   padding-bottom: 80px;
   width: 90%;
-  height: 100%;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   min-width: 240px;
@@ -163,7 +161,7 @@ body h1 {
   }
 }
 .tabs input[name="tab-control"]:nth-of-type(1):checked ~ .slider {
-  transform: translateX(20%);
+  transform: translateX(0%);
 }
 .tabs
   input[name="tab-control"]:nth-of-type(1):checked
@@ -197,7 +195,7 @@ body h1 {
   }
 }
 .tabs input[name="tab-control"]:nth-of-type(2):checked ~ .slider {
-  transform: translateX(155%);
+  transform: translateX(100%);
 }
 .tabs
   input[name="tab-control"]:nth-of-type(2):checked
@@ -231,7 +229,7 @@ body h1 {
   }
 }
 .tabs input[name="tab-control"]:nth-of-type(3):checked ~ .slider {
-  transform: translateX(275%);
+  transform: translateX(200%);
 }
 .tabs
   input[name="tab-control"]:nth-of-type(3):checked

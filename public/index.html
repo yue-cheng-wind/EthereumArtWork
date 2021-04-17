@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="styles.css">
 
     <title>Alice's Dreaming Gallery DApp</title>
+
+    
     
 </head>
 
@@ -22,22 +24,30 @@
     <h1>Alice's Dreaming Gallery DApp</h1>
 
     <div class="tabs mb-5">
+        <input type="radio" id="tab0" name="tab-control">
         <input type="radio" id="tab1" name="tab-control" checked>
         <input type="radio" id="tab2" name="tab-control">
+        <input type="radio" id="tab3" name="tab-control">
 
+        <!-- tab labels -->
         <ul>
-            <li title="Features"><label for="tab1" role="button"><span>About Me</span></label></li>
-            <li title="Delivery Contents"><label for="tab2" role="button"><span>Gallery</span></label></li>
+            <li></li>
+            <li title="About Me"><label for="tab1" role="button"><span>About Me</span></label></li>
+            <li title="Gallery"><label for="tab2" role="button"><span>Gallery</span></label></li>
+            <li></li>
         </ul>
 
         <div class="slider">
             <div class="indicator"></div>
         </div>
+
+        <!-- tab content-->
         <div class="content">
+            <section></section>
             <!-- tab 1: about me -->
             <section>
                 Features go here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati atque quibusdam officiis est dolorum minima deleniti ratione molestias numquam. Voluptas voluptates quibusdam cum?
-            </section>
+            </section> <!-- end about me-->
 
             <!-- tab 2: gallery -->
             <section>
@@ -171,23 +181,15 @@
                     
                 </div><!-- end container -->
 
-            </section>
-        </div>
+            </section> <!-- end gallery -->
+
+        </div> <!-- end tab content-->
+        <section></section>
+
     </div> <!-- end tabs -->
 
 
 
-
-
-
-
-
-
-
-    
-    
-
-    
     <footer class="fixed-bottom bg-color-light text-center">
         <p class="small mt-5"> Developed with <i class="fas fa-heart mr-1 text-danger"></i>by 
             <a href="https://github.com/yue-cheng-wind/EthereumArtWork.git" class="font-weight-bold text-danger" target="_blank">
