@@ -21,7 +21,8 @@ body h1 {
   margin: 0;
 }
 #headshot {
-    height: 75%;
+    width: 100%;
+    height: auto;
 }
 #bio_font {
     font-size: 2em;
