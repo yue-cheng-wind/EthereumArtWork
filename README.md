@@ -26,8 +26,10 @@ To run this dapp, you should have installed <br>
 (1) Ethereum enabled browser or Metamask (https://metamask.io/) <br>
 (2) node (https://nodejs.org/en/download/)<br>
 After clone the code to your local laptop, in the terminal do<br>
-> $ npm install<br>
-> $ node index.js<br>
+```
+$ npm install
+$ node index.js
+```
 You will see our gallery dapp at http://localhost:3000/ 
 * Interact with Gallery Dapp(as gallery dapp visitor)<br>
 (1) Register an account in Metamask<br>
@@ -49,7 +51,6 @@ Same as the deployment, speed is highly related to gas price and network congest
 
 ## Future Work
 If we were to continue working on the project, we would add a few different items. <br>
-<br>
 First, we would use ERC NFTs to digitally authenticate and trace each art piece, which would be useful for copyright laws that could protect the artist. 
 Second, We would improve the robustness of the smart contract to be able to add/delete artwork, as well as modify information about each artwork, in that way this smart contract can be sustainable in the long run.<br>
 Third, we will allow the supporters to customize their tip value, for demonstration purposes currently the tip value is set as 10wei. Allowing the customizable tip ensures that support can freely express their appreciation on the art piece, as well as to encourage the artist’s creativity to the largest.<br>
