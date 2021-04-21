@@ -1,6 +1,6 @@
 # Ethereum Gallery Distributed App
-Final Application link: https://gallery-dapp.herokuapp.com/ 
-Video Demo: Link here https://www.youtube.com/watch?v=WKxPW5-rbSU
+Final Application link: https://gallery-dapp.herokuapp.com/ <br>
+Video Demo: Link here https://www.youtube.com/watch?v=WKxPW5-rbSU <br>
 Wecome to the Ethereum Gallery Distributed App! This is the app built based on Ethereum smart contract, where artist can show their artwork online, and receive financial support from the same website.
 
 ## Use Cases
@@ -16,7 +16,7 @@ Our smart contract is based on a tutorial we followed here: https://github.com/T
 Representing artwork in digital forms raises copyright issues. Due to the easiness of duplicating digital information, exposing artwork online poses the risk of the work being stolen. Traditionally, the way to mitigate this issue is to release information in a confined environment, which comes with the cost of limited freedom.  By associating artwork ownership with non-fungible tokens, we eliminate the reliance on such confined environments and give the choice back to the users. Note that we haven’t implemented the ERC Non-fungible token yet and this work is left as part of our future work.
 
 ## High Level Architecture
-/*****/
+![Alt text](https://github.com/yue-cheng-wind/EthereumArtWork/blob/main/architecture.jpg?raw=true "Optional Title")
 
 The architecture above provides high-level context of how our application would work in a production environment. An artist (or us as a company/provider) would deploy their own gallery smart contract to the ethereum main network, then deploy a website that holds the artwork information and connection to the deployed smart contract. The front end could be hosted using a variety of providers, and the backend/smart contract could easily be deployed using an automated script, Remix, etc. Once everything is deployed, the website link can be shared. Any given user that visits the link would have the front-end sent to their browser from the provider. From there, they can interact with the website, using their MetaMask credentials. Anytime a user “likes” or “tips” an art piece, we will use the Web3 code in the front-end to connect to the deployed smart contract, and process the like action/tip payment accordingly. Tips would be sent to the wallet address of the artist.
 
